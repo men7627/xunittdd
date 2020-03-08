@@ -10,14 +10,15 @@ public abstract class TestCase {
         this.name = name;
     }
 
-    public void run() {
+    public void run(TestResult result) {
+        result.testStarted();
         setUp();
 
         try {
             Method method = getClass().getMethod(name);
             method.invoke(this);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            result.testFailed();
         }
 
         tearDown();
