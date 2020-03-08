@@ -1,9 +1,8 @@
 package xunit;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public abstract class TestCase {
+public class TestCase implements Test{
     protected final String name;
 
     public TestCase(String name) {
