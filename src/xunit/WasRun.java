@@ -1,7 +1,13 @@
 package xunit;
 
 public class WasRun extends TestCase {
-    public boolean wasRun = false;
+    public boolean wasRun;
+    public boolean wasSetUp;
+
+    @Override
+    public void setUp() {
+        wasSetUp = true;
+    }
 
     public WasRun(String name) {
         super(name);
